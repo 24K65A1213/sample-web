@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App</title>
+  <style>
+    body {
+      background-color: rgb(146, 243, 207);
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    button {
+      border-radius: 5px;
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #increment {
+      background-color: aqua;
+    }
+    #decrement {
+      background-color: rgb(255, 142, 142);
+    }
+    #reset {
+      background-color: lightpink;
+    }
+  </style>
+</head>
+<body>
+  <p style="color:rgb(40, 33, 33); font-size: 24px;">
+    Counter: <span id="count">0</span>
+  </p>
+  <button id="increment">Increment</button>
+  <button id="decrement">Decrement</button>
+  <button id="reset">Reset</button>
+
+  <script>
+    const counter = document.getElementById("count");
+    const incrementButton = document.getElementById("increment");
+    const decrementButton = document.getElementById("decrement");
+    const resetButton = document.getElementById("reset");
+
+    let count = 0;
+
+    incrementButton.addEventListener("click", function () {
+      if (count < 10) {
+        count++;
+      } else {
+        alert("Limit reached! Resetting to zero.");
+        count = 0;
+      }
+      counter.textContent = count;
+    });
+
+    decrementButton.addEventListener("click", function () {
+      if (count === 0) {
+        alert("Can't go below zero!");
+      } else {
+        count--;
+      }
+      counter.textContent = count;
+    });
+
+    resetButton.addEventListener("click", function () {
+      count = 0;
+      counter.textContent = count;
+    });
+  </script>
+</body>
+</html>
